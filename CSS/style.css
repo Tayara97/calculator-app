@@ -1,0 +1,365 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  /* 
+## Colors
+
+### Theme1
+
+#### Backgrounds */
+
+  --Theme1-main-background: hsl(222, 26%, 31%);
+  --Theme1-keypad-background: hsl(223, 31%, 20%);
+  --Theme1-screen-background: hsl(224, 36%, 15%);
+
+  /* #### Keys */
+
+  --Theme1-keys-background: hsl(225, 21%, 49%);
+  --Theme1key-shadow: hsl(224, 28%, 35%);
+
+  --Theme1key-background-Two: hsl(6, 63%, 50%);
+  --key-shadowTwo: hsl(6, 70%, 34%);
+
+  --Theme1key-background-Three: hsl(30, 25%, 89%);
+  --Theme1key-background-Four: hsl(28, 16%, 65%);
+
+  /* #### Text */
+
+  --Theme1-text: hsl(221, 14%, 31%);
+  ---text-two: hsl(0, 0%, 100%);
+
+  /* ### Theme-2-
+
+#### Backgrounds */
+
+  --Theme-2-main-background: hsl(0, 0%, 90%);
+  --Theme-2-keypad-background: hsl(0, 5%, 81%);
+  --Theme-2-screen-background: hsl(0, 0%, 93%);
+
+  /* #### Keys */
+
+  --Theme-2-key-background: hsl(185, 42%, 37%);
+  --Theme-2-key-shadow: hsl(185, 58%, 25%);
+
+  --Theme-2-key-backgroundTwo: hsl(25, 98%, 40%);
+  --Theme-2-key-shadowTwo: hsl(25, 99%, 27%);
+
+  --key-backgroundThree: hsl(45, 7%, 89%);
+  --key-shadowThree: hsl(35, 11%, 61%);
+
+  /* #### Text */
+
+  --Theme-2-text: hsl(60, 10%, 19%);
+
+  /* ### Theme-3
+
+#### Backgrounds */
+
+  --Theme-3-main-background: hsl(268, 75%, 9%);
+  --Theme-3-secondary-background: hsl(268, 71%, 12%);
+
+  /* #### Keys */
+
+  --Theme-3-key-background: hsl(281, 89%, 26%);
+  --Theme-3-key-shadow: hsl(285, 91%, 52%);
+
+  --Theme-3-key-background-two: hsl(176, 100%, 44%);
+  --Theme-3-shadow-two: hsl(177, 92%, 70%);
+
+  --Theme-3-key-background-three: hsl(268, 47%, 21%);
+  --Theme-3-key-shadow-three: hsl(290, 70%, 36%);
+
+  /* #### Text */
+
+  --Theme-3-text: hsl(52, 100%, 62%);
+  --Theme-3-textTwo: hsl(198, 20%, 13%);
+}
+body {
+  font-family: League Spartan;
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+.container {
+  width: 375px;
+  padding: 45px 20px;
+  background-color: var(--Theme1-main-background);
+}
+.container[data-theme="one"] {
+  background-color: var(--Theme1-main-background);
+}
+
+.container .calculator header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .calculator header h1 {
+  font-size: 30px;
+  color: var(---text-two);
+}
+.container .calculator header div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .calculator header div .text {
+  color: var(---text-two);
+  margin-right: 30px;
+  font-size: 12px;
+}
+.container .calculator header div .themes-switcher {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 70px;
+  height: 25px;
+  list-style: none;
+  border-radius: 12px;
+  background-color: var(--Theme1-keypad-background);
+  padding: 5px;
+}
+.container .calculator header div .themes-switcher li {
+  position: relative;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.container .calculator header div .themes-switcher li.active {
+  background-color: var(--Theme1key-background-Two);
+}
+.container .calculator header div .themes-switcher li.active:hover {
+  background-color: hsl(6 63% 65% / 1);
+}
+.container .calculator header div .themes-switcher li > span {
+  position: absolute;
+  color: var(---text-two);
+  top: -20px;
+  font-size: 10px;
+  left: 6px;
+}
+.container .calculator .result-screen {
+  width: 100%;
+  color: white;
+  background-color: var(--Theme1-screen-background);
+  padding: 25px;
+  height: 78px;
+  border-radius: 10px;
+  margin: 2rem 0 1rem;
+  font-size: 30px;
+  text-align: right;
+}
+.container .calculator .calculator-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  background-color: var(--Theme1-keypad-background);
+  padding: 25px;
+}
+.container .calculator .calculator-btns .btn {
+  width: 60px;
+  font-weight: 700;
+  font-size: 32px;
+  color: var(--Theme1-text);
+  background-color: var(--Theme1key-background-Three);
+  box-shadow: 0px 4px 0 0 var(--Theme1key-background-Four);
+  cursor: pointer;
+}
+.container .calculator .calculator-btns .del {
+  width: 60px;
+}
+.container .calculator .calculator-btns .equal-btn {
+  background-color: var(--Theme1key-background-Two);
+  box-shadow: 0px 4px 0 0 var(--key-shadowTwo);
+  color: var(---text-two);
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.container .calculator .calculator-btns .reset-btn,
+.container .calculator .calculator-btns .equal-btn {
+  width: 135px;
+}
+
+.container .calculator .calculator-btns .btn,
+.container .calculator .calculator-btns .reset-btn,
+.container .calculator .calculator-btns .equal-btn,
+.container .calculator .calculator-btns .del {
+  height: 60px;
+  border-radius: 8px;
+  border: none;
+}
+
+.container .calculator .calculator-btns .reset-btn,
+.container .calculator .calculator-btns .del {
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--Theme1key-background-Three);
+  background-color: var(--Theme1-keys-background);
+  box-shadow: 0px 4px 0 0 var(--Theme1key-shadow);
+}
+
+/* theme two style */
+.container[data-theme="two"] {
+  background-color: var(--Theme-2-main-background);
+}
+.container[data-theme="two"] .calculator header h1 {
+  color: var(--Theme-2-text);
+}
+.container[data-theme="two"] .calculator header div .text {
+  color: var(--Theme-2-text);
+}
+.container[data-theme="two"] .calculator header div .themes-switcher {
+  background-color: var(--Theme-2-keypad-background);
+}
+.container[data-theme="two"] .calculator header div .themes-switcher li > span {
+  color: var(--Theme-2-text);
+}
+.container[data-theme="two"] .calculator .result-screen {
+  background-color: var(--Theme-2-screen-background);
+  color: var(--Theme-2-text);
+}
+.container[data-theme="two"] .calculator .calculator-btns {
+  background-color: var(--Theme-2-keypad-background);
+}
+.container[data-theme="two"] .calculator .calculator-btns .btn:not(.del) {
+  color: var(--Theme-2-text);
+  box-shadow: 0px 4px 0 0 var(--key-shadowThree);
+  background-color: var(--key-backgroundThree);
+}
+.container[data-theme="two"] .calculator .calculator-btns .btn:not(.del):hover {
+  background-color: white;
+  cursor: pointer;
+}
+.container[data-theme="two"] .calculator .calculator-btns .reset-btn,
+.container[data-theme="two"] .calculator .calculator-btns .del {
+  background-color: var(--Theme-2-key-background);
+  box-shadow: 0px 4px 0 0 var(--Theme-2-key-shadow);
+}
+.container[data-theme="two"] .calculator .calculator-btns .reset-btn:hover,
+.container[data-theme="two"] .calculator .calculator-btns .del:hover {
+  background-color: hsl(185 42% 55% / 1);
+}
+.container[data-theme="two"] .calculator .calculator-btns .equal-btn {
+  background-color: var(--Theme-2-key-backgroundTwo);
+  box-shadow: 0px 4px 0 0 var(--Theme-2-key-shadowTwo);
+}
+.container[data-theme="two"] .calculator .calculator-btns .equal-btn:hover {
+  background-color: hsl(25 98% 55% / 1);
+}
+/* theme 3 style */
+.container[data-theme="three"] {
+  background-color: var(--Theme-3-main-background);
+}
+.container[data-theme="three"] .calculator header h1,
+.container[data-theme="three"] .calculator header div .text {
+  color: var(--Theme-3-text);
+}
+.container[data-theme="three"] .calculator header div .themes-switcher {
+  background-color: var(--Theme-3-secondary-background);
+}
+.container[data-theme="three"]
+  .calculator
+  header
+  div
+  .themes-switcher
+  li
+  > span {
+  color: var(--Theme-3-text);
+}
+.container[data-theme="three"]
+  .calculator
+  header
+  div
+  .themes-switcher
+  li.active {
+  background-color: var(--Theme-3-key-background-two);
+}
+.container[data-theme="three"]
+  .calculator
+  header
+  div
+  .themes-switcher
+  li.active:hover {
+  background-color: hsl(176 100% 60% / 1);
+}
+.container[data-theme="three"] .calculator .result-screen {
+  background-color: var(--Theme-3-secondary-background);
+  color: var(--Theme-3-text);
+}
+.container[data-theme="three"] .calculator .calculator-btns {
+  background-color: var(--Theme-3-secondary-background);
+  color: var(--Theme-3-text);
+}
+.container[data-theme="three"] .calculator .calculator-btns .btn:not(.del) {
+  background-color: var(--Theme-3-key-background-three);
+  color: var(--Theme-3-text);
+  box-shadow: 0px 4px 0 0 var(--Theme-3-key-shadow-three);
+}
+.container[data-theme="three"]
+  .calculator
+  .calculator-btns
+  .btn:not(.del):hover {
+  background-color: hsl(268 47% 45% / 1);
+}
+.container[data-theme="three"] .calculator .calculator-btns .reset-btn,
+.container[data-theme="three"] .calculator .calculator-btns .del {
+  background-color: var(--Theme-3-key-background);
+  box-shadow: 0px 4px 0 0 var(--Theme-3-key-shadow);
+}
+.container[data-theme="three"] .calculator .calculator-btns .reset-btn:hover,
+.container[data-theme="three"] .calculator .calculator-btns .del:hover {
+  background-color: hsl(281 89% 45% / 1);
+}
+.container[data-theme="three"] .calculator .calculator-btns .equal-btn {
+  box-shadow: 0px 4px 0 0 var(--Theme-3-shadow-two);
+  background-color: var(--Theme-3-key-background-two);
+  color: var(--Theme-3-textTwo);
+}
+.container[data-theme="three"] .calculator .calculator-btns .equal-btn:hover {
+  background-color: hsl(176 100% 75% / 1);
+}
+/* //media query */
+@media (min-width: 768px) {
+  .container {
+    width: 570px;
+  }
+  .container .calculator .calculator-btns {
+    gap: 26px;
+  }
+  .container .calculator .calculator-btns .btn,
+  .container .calculator .calculator-btns .del {
+    width: 100px;
+  }
+  .container .calculator .calculator-btns .btn:hover {
+    background-color: white;
+  }
+  .container .calculator .calculator-btns .reset-btn,
+  .container .calculator .calculator-btns .equal-btn {
+    width: 225px;
+  }
+  .container .calculator .calculator-btns .equal-btn:hover {
+    background-color: hsl(25 98% 60% / 1);
+    cursor: pointer;
+  }
+  .container .calculator .calculator-btns .reset-btn:hover,
+  .container .calculator .calculator-btns .del:hover {
+    cursor: pointer;
+    background-color: hsl(225 21% 65% / 1);
+  }
+}
